@@ -3,27 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <title>Stephens64 Random Card Generator</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+    <div class="container">
+      <h1>Stephens64 Random Card Generator</h1>
+      <div id="card" class="card"></div>
+
+      <button id="generateButton">
+        <h1>Create New Card!</h1>
+      </button>
     </div>
+
+    <script>
+      function generateCard() {
+        const suits = [
+          { name: "spade", icon: "♠" },
+          { name: "club", icon: "♣" },
+          { name: "heart", icon: "♥" },
+          { name: "diamond", icon: "♦" }
+        ];
+        const values = [
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "J",
+          "Q",
+          "K",
+          "A"
+        ];
+
+        const randomSuitIndex = Math.floor(Math.random() * suits.length);
+        const randomValueIndex = Math.floor(Math.random() * values.length);
+
+        const randomSuit = suits[randomSuitIndex];
+        const randomValue = values[randomValueIndex];
+
+        const cardDiv = document.getElementById("card");
+        cardDiv.innerHTML = `
+          <div class="top-left">${randomValue}<br>${randomSuit.icon}</div>
+          <div class="center">${randomValue}</div>
+          <div class="bottom-right">${randomValue}<br>${randomSuit.icon}</div>
+        `;
+
+        cardDiv.className = "card";
+        cardDiv.classList.add(randomSuit.name);
+      }
+
+      window.onload = generateCard;
+
+      document
+        .getElementById("generateButton")
+        .addEventListener("click", generateCard);
+    </script>
   </body>
 </html>

@@ -1,1 +1,81 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background-color: green;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px; /* Adds space between the top of the screen and the content */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.card {
+  font-size: 2em;
+  padding: 20px;
+  border: 2px solid #000;
+  display: inline-block;
+  text-align: center;
+  width: 25vw;
+  height: 70vh; /* 60% of the viewport height */
+  border-radius: 10px;
+  position: relative;
+  background-color: white;
+}
+
+.card .top-left,
+.card .bottom-right {
+  position: absolute;
+  font-size: 1.5em; /* Adjusted font size for better visibility */
+  line-height: 1em;
+}
+
+.card .top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.card .bottom-right {
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+.card .center {
+  font-size: 4em; /* Increased the size of the center icon for better visibility */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spade {
+  color: black;
+  font-size: 3em;
+}
+
+.club {
+  color: black;
+  font-size: 3em;
+}
+
+.heart {
+  color: red;
+  font-size: 3em;
+}
+
+.diamond {
+  color: red;
+  font-size: 3em;
+}
+
+#generateButton {
+  margin: 20px;
+  padding: 5px;
+}
